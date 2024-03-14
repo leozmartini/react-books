@@ -1,17 +1,21 @@
-import './style.css'
-import Logo from '../Logo'
-import HeaderOptions from '../HeaderOptions'
-import HeaderIcons from '../HeaderIcons'
+import styled from 'styled-components';
+import Logo from '../Logo';
+import HeaderOptions from '../HeaderOptions';
+import HeaderIcons from '../HeaderIcons';
 
+const HeaderConainter = styled.header`
+  background-color: white;
+  display: flex;
+  justify-content: center;
+`
 
 function Header() {
     return (
-        <header className='App-header'>
+        <HeaderConainter>
         <Logo></Logo>
         <HeaderOptions></HeaderOptions>
         <HeaderIcons></HeaderIcons>
-
-      </header>
+      </HeaderConainter>
     )
 }
 
