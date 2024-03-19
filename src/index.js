@@ -32,7 +32,9 @@ root.render(
       <BrowserRouter>
         <Routes>
           <Route path="/" element={ <App/> } />
+          <Route path="/categorias" element={ <p>Categorias</p> } />
           <Route path="/favoritos" element={ <p>Favoritos</p> } />
+          <Route path="/estante" element={ <p>Estante</p> } />
         </Routes>
       </BrowserRouter>
   </React.StrictMode>
