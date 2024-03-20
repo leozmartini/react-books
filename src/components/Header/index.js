@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Logo from '../Logo';
 import HeaderOptions from '../HeaderOptions';
 import HeaderIcons from '../HeaderIcons';
+import { Link } from 'react-router-dom';
 
 const HeaderConainter = styled.header`
   background-color: white;
@@ -12,9 +13,9 @@ const HeaderConainter = styled.header`
 function Header() {
     return (
         <HeaderConainter>
-        <Logo></Logo>
-        <HeaderOptions></HeaderOptions>
-        <HeaderIcons></HeaderIcons>
+        <Link to="/"> <Logo/> </Link>  
+        <HeaderOptions/>
+        <HeaderIcons/>
       </HeaderConainter>
     )
 }
