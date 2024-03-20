@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import Search from './components/Search';
-import LastReleases from './components/LastReleases';
+import Search from '../components/Search';
+import LastReleases from '../components/LastReleases';
 
 const AppContainer = styled.div`
   width: 100vw;
@@ -9,7 +9,7 @@ const AppContainer = styled.div`
 `
 
 
-function App() {
+function Home() {
   return (
     <AppContainer>
       <Search />
@@ -18,4 +18,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;
