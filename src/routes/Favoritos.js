@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { getFavs } from '../services/favs';
+import { deleteFav, getFavs } from '../services/favs';
 import sampleImg from '../images/livro.png'
 
 const AppContainer = styled.div`
@@ -56,6 +56,12 @@ function Favoritos() {
     setFavs(await getFavs())
   }
 
+  async function delFav(id, name) {
+    await deleteFav(id)
+    await fetchFavs()
+    alert(`O livro "${name}"(ID: ${id}) foi deletado dos Favoritos.`)
+}
+
   return (
     <AppContainer>
       <div> 
@@ -63,7 +69,7 @@ function Favoritos() {
           <ResponseContainer>
             {
               favs.length !== 0 ? favs.map( fav => (
-                  <Response>
+                  <Response onClick={() => delFav(fav.id, fav.name)}>
                     <p>{fav.name}</p>
                     <img src={sampleImg} alt="book-img"/>                  
                   </Response>

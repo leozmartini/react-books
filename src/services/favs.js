@@ -7,11 +7,11 @@ async function getFavs() {
     return response.data
 }
 
-async function postFav() {
+async function postFav(id) {
     await favsAPI.post(`/${id}`);
 }
 
-async function deleteFav() {
+async function deleteFav(id) {
     await favsAPI.delete(`/${id}`);
 }
 

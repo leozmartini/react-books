@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useEffect, useState } from "react";
 import { getBooks } from "../../services/books";
 import sampleImg from '../../images/livro.png'
+import { postFav } from "../../services/favs";
 
 const SearchContainer = styled.section`
     background-image: linear-gradient(90deg, #002F52 35%, #326589 165%);
@@ -56,6 +57,11 @@ function Search() {
         setBooks(await getBooks());
     }
 
+    async function insertFav(id, name) {
+        await postFav(id)
+        alert(`O livro "${name}"(ID: ${id}) foi adicionado aos Favoritos.`)
+    }
+
     return (
         <SearchContainer>
             <Title>Já sabe por onde começar ?</Title>
@@ -70,7 +76,7 @@ function Search() {
             />
             {searchedText.map(book => { // Se abrir direto com parenteses não é necessário return.
                 return (
-                    <Response>
+                    <Response onClick={() => insertFav(book.id, book.name)}>
                         <p>{book.name}</p>
                         <img src={sampleImg} alt='book-img' />
                     </Response>
