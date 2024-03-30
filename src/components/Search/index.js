@@ -2,6 +2,7 @@ import Input from "../Input";
 import styled from 'styled-components';
 import { useEffect, useState } from "react";
 import { getBooks } from "../../services/books";
+import sampleImg from '../../images/livro.png'
 
 const SearchContainer = styled.section`
     background-image: linear-gradient(90deg, #002F52 35%, #326589 165%);
@@ -71,7 +72,7 @@ function Search() {
                 return (
                     <Response>
                         <p>{book.name}</p>
-                        <img src={book.src} alt='book-img' />
+                        <img src={sampleImg} alt='book-img' />
                     </Response>
                 )
 
