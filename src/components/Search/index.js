@@ -1,7 +1,7 @@
 import Input from "../Input";
 import styled from 'styled-components';
-import { useState } from "react";
-import { books } from './searchData'
+import { useEffect, useState } from "react";
+import { getBooks } from "../../services/books";
 
 const SearchContainer = styled.section`
     background-image: linear-gradient(90deg, #002F52 35%, #326589 165%);
@@ -45,6 +45,15 @@ const Response = styled.div`
 function Search() {
 
     const [searchedText, setSearchedText] = useState([])
+    const [books, setBooks] = useState([])
+
+    useEffect(() => {
+        fetchBooks();
+    }, []); // [] Chama a arrowFunction quando o elemento dentro do array for modificado, vazio é no carregamento da página
+
+    async function fetchBooks() {
+        setBooks(await getBooks());
+    }
 
     return (
         <SearchContainer>
