@@ -7,6 +7,16 @@ async function getFavs() {
     return response.data
 }
 
+async function postFav() {
+    await favsAPI.post(`/${id}`);
+}
+
+async function deleteFav() {
+    await favsAPI.delete(`/${id}`);
+}
+
 export {
     getFavs,
+    postFav,
+    deleteFav
 }
